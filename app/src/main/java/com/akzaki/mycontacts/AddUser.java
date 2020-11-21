@@ -138,15 +138,16 @@ public class AddUser extends AppCompatActivity {
                     ty.show();
                     return;
                 }
+                if(temp_email.length() > 0)   //can be empty
+                    if(temp_email.indexOf('@') < 0
+                            || temp_email.indexOf('.') < 0 ||
+                            (temp_email.indexOf('@') != temp_email.lastIndexOf('@'))){
+                        Toast ty = Toast.makeText(AddUser.this,"Invalid Email!",Toast.LENGTH_LONG);
+                        ty.show();
+                        return;
+                    }
 
-                if(temp_email.indexOf('@') < 0
-                        || temp_email.indexOf('.') < 0 ||
-                        (temp_email.indexOf('@') != temp_email.lastIndexOf('@'))){
-                    Toast ty = Toast.makeText(AddUser.this,"Invalid Email!",Toast.LENGTH_LONG);
-                    ty.show();
-                    return;
-                }
-
+                if(temp_phone.length() > 0) //can be empty
                 if(temp_phone.length() != 10 && temp_phone.indexOf("+")!=0){
                     Toast ty = Toast.makeText(AddUser.this,"Invalid Phone Number!",Toast.LENGTH_LONG);
                     ty.show();
